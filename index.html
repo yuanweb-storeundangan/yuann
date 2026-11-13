@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f4f2fa">
+<meta name="description" content="Yuan.Web — katalog undangan digital.">
+<title>Yuan.Art | Undangan Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f2f8;--ink:#242333;--muted:#777687;--accent:#7357c8;--accent2:#a58ae9;
+  --card:#fff;--line:#e8e5f0;--shadow:0 18px 45px rgba(47,39,78,.10);--radius:26px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;color:var(--ink);background:
+  radial-gradient(ellipse at 5% 8%,rgba(180,159,238,.23),transparent 30%),
+  radial-gradient(ellipse at 95% 28%,rgba(130,186,210,.18),transparent 28%),var(--bg);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.container{width:min(100% - 34px,760px);margin:auto}
+.topbar{height:66px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;letter-spacing:1.4px;font-size:1.08rem;color:#302b46}
+.logo span{color:var(--accent)}
+.top-link{font-size:.84rem;color:var(--muted);font-weight:600}
+.cover{height:210px;border-radius:0 0 20px 20px;overflow:hidden;position:relative;
+ background:linear-gradient(115deg,rgba(36,31,62,.66),rgba(86,67,143,.18)),url("foto2.jpg") center 48%/cover;
+ box-shadow:var(--shadow)}
+.cover:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(28,24,46,.26),transparent 65%)}
+.cover-label{position:absolute;z-index:1;left:25px;bottom:20px;color:white}
+.cover-label small{display:block;letter-spacing:2.5px;text-transform:uppercase;font-size:.68rem;opacity:.85}
+.cover-label strong{font:600 1.65rem "Playfair Display",serif}
+.profile{text-align:center;padding:0 18px 34px}
+.avatar {
+    width: 145px;
+    height: 145px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: -72px auto 13px;
+    position: relative;
+    z-index: 2;
+    border: 6px solid #f3f2f8;
+    box-shadow: 0 8px 24px rgba(64,48,115,.18);
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+.username{font:600 1.25rem "Playfair Display",serif;letter-spacing:.2px}
+.handle{font-size:.82rem;color:var(--accent);font-weight:700;margin-top:2px}
+.bio{max-width:570px;margin:15px auto 20px;color:#656374;font-size:.65rem;line-height:1.85}
+.socials{display:flex;justify-content:center;gap:18px}
+.social{width:49px;height:49px;border-radius:17px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:#28253a;box-shadow:0 7px 20px rgba(46,38,78,.07);transition:.22s}
+.social:hover{transform:translateY(-4px);background:var(--accent);color:#fff}
+.social svg{width:23px;height:23px;fill:currentColor}
+.section-title{text-align:center;margin:12px 0 23px}
+.section-title .eyebrow{font-size:.7rem;font-weight:800;letter-spacing:2.5px;color:var(--accent);text-transform:uppercase}
+.section-title h1{font:600 clamp(1.8rem,5vw,2.4rem) "Playfair Display",serif;margin:5px 0}
+.section-title p{font-size:.9rem;color:var(--muted)}
+.products{display:grid;gap:25px;padding-bottom:58px}
+.product{background:var(--card);border:1px solid rgba(112,91,168,.14);border-radius:30px;overflow:hidden;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s}
+.product:hover{transform:translateY(-4px);box-shadow:0 24px 55px rgba(47,39,78,.15)}
+.product-image{height:auto;aspect-ratio:1.23/1;position:relative;background:#e9e5f2;overflow:hidden}
+.product-image img{width:100%;height:100%;object-fit:cover;display:block}
+.product-image:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(27,23,44,.18),transparent 45%);pointer-events:none}
+.tag{position:absolute;z-index:1;top:16px;left:16px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--accent);font-size:.7rem;font-weight:800;letter-spacing:.8px}
+.product-info{padding:22px 25px 25px}
+.product-info h2{font:600 1.45rem "Playfair Display",serif;margin-bottom:6px}
+.description{font-size:.88rem;color:var(--muted);margin-bottom:16px}
+.price-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+.price{font:600 1.55rem "Playfair Display",serif;color:#302a48}
+.old-price{color:#aaa7b1;font-size:1rem}
+.saving{font-size:.76rem;color:#39866c;font-weight:700}
+.feature-list{display:flex;flex-wrap:wrap;gap:7px;margin:15px 0 20px}
+.feature-list span{font-size:.74rem;color:#625c75;background:#f3f0fa;border:1px solid #eae5f5;border-radius:999px;padding:6px 10px}
+.order{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:14px 18px;border:0;border-radius:15px;background:linear-gradient(110deg,#6b52bc,#9177df);color:#fff;font-weight:800;font-size:.94rem;cursor:pointer;box-shadow:0 9px 20px rgba(107,82,188,.2);transition:.2s}
+.order:hover{filter:brightness(1.07);transform:translateY(-2px)}
+.order svg{width:19px;height:19px;fill:currentColor}
+.note{text-align:center;color:var(--muted);font-size:.78rem;margin:0 auto 35px;max-width:560px}
+footer{padding:28px 15px 34px;text-align:center;border-top:1px solid var(--line);color:var(--muted);font-size:.8rem}
+footer strong{color:#38334c}
+.wa-float{position:fixed;right:18px;bottom:18px;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:#20bd70;color:#fff;font-size:1.55rem;box-shadow:0 8px 25px #1b1b1b30;z-index:10}
+@media(min-width:700px){.cover{height:245px}.avatar{width:145px;height:145px;margin-top:-72px}.product-image{aspect-ratio:1.65/1}.product-info{padding:25px 30px 30px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="container topbar">
+  <a class="logo" href="#">YUAN<span>.Art</span></a>
+  <a class="top-link" href="#produk">Katalog Undangan <span aria-hidden="true">☰</span></a>
+</header>
+
+<main>
+  <div class="container">
+    <section class="cover" aria-label="Foto sampul toko">
+      <div class="cover-label"><small>Digital Invitation Studio</small><strong>Make your moment memorable.</strong></div>
+    </section>
+
+    <section class="profile" aria-label="Profil toko">
+      <!-- Ganti kotak inisial ini dengan foto profil Anda jika sudah tersedia. -->
+      <div class="avatar">
+        <img src="profil.png" alt="foto profil"
+          
+      <div class="username">Yuan Yudhistira</div>
+      <div class="handle">@yuannn</div>
+      <p class="bio">✨Hai! saya Yuan. saya membuat undangan digital yang elegan, modern, dan praktis untuk momen istimewa Anda. buat hari spesialmu semakin berkesan.✨</p>
+      <div class="socials">
+        <!-- Ganti URL berikut dengan tautan akun pribadi Anda. -->
+        <a class="social" href="https://www.instagram.com/ydstrax_?xtok=aW12ZWRzeXM2Z3h6" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7zm5 2.3a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2.2a3.3 3.3 0 1 0 0 6.6 3.3 3.3 0 0 0 0-6.6zm5.7-3.1a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6z"/></svg></a>
+        <a class="social" href="https://www.facebook.com/share/1FG18NaZLh/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.8v8h3.4z"/></svg></a>
+        <a class="social" href="https://www.tiktok.com/@yuangimun" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24"><path d="M19.6 7.2a6.8 6.8 0 0 1-4.2-1.5v8.1a6.1 6.1 0 1 1-5.3-6v3.2a2.9 2.9 0 1 0 2.1 2.8V2h3.2c.2 2.1 1.9 3.8 4.2 4v1.2z"/></svg></a>
+      </div>
+    </section>
+
+    <section id="produk">
+      <div class="section-title"><div class="eyebrow">Koleksi Pilihan</div><h1>Produk Undangan Digital</h1><p>Pilih paket yang paling sesuai dengan kebutuhan acara Anda.</p></div>
+      <div class="products">
+        <article class="product">
+          <div class="product-image">
+            <span class="tag">PAKET BASIC</span>
+            <img src="basic.jpg" alt="Contoh tampilan undangan digital basic" loading="lazy">
+          </div>
+          <div class="product-info">
+            <h2>Undangan Digital Basic</h2>
+            <p class="description">Desain simpel, elegan, dan berisi informasi penting acara. Pilihan praktis dengan tampilan yang tetap berkesan.</p>
+            <div class="price-row"><span class="price">IDR 150.000</span><del class="old-price">IDR 190.000</del></div>
+            <div class="saving">Hemat IDR 40.000</div>
+            <div class="feature-list"><span>Cover undangan</span><span>Profil & acara</span><span>4 Foto Galerry</span><span>Google Maps</span><span>Responsif</span><span>Music(default)</span></div>
+            <button class="order" data-package="Undangan Digital Basic" data-price="IDR 150.000">
+              Pesan Sekarang <span aria-hidden="true">🛒</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-image">
+            <span class="tag">PAKET PREMIUM</span>
+            <img src="premium.jpg" alt="Contoh tampilan undangan digital premium" loading="lazy">
+          </div>
+          <div class="product-info">
+            <h2>Undangan Digital Premium</h2>
+            <p class="description">Tampilan lebih eksklusif dengan fitur interaktif dan elemen personal untuk membuat momen spesial semakin istimewa.</p>
+            <div class="price-row"><span class="price">IDR 270.000</span><del class="old-price">IDR 350.000</del></div>
+            <div class="saving">Hemat IDR 80.000</div>
+            <div class="feature-list"><span>Semua fitur Basic</span><span>8–10 foto galeri</span><span>Video YouTube(opsional)</span><span>Music(custom)</span><span>Countdown</span><span>RSVP</span><span>Buku tamu</span><span>Animasi</span></div>
+            <button class="order" data-package="Undangan Digital Premium" data-price="IDR 270.000">
+              Pesan Sekarang <span aria-hidden="true">🛒</span>
+            </button>
+          </div>
+        </article>
+      </div>
+      <p class="note">Harga yang ditampilkan adalah harga promo. Hubungi admin untuk konsultasi, detail fitur, dan proses pemesanan.</p>
+    </section>
+  </div>
+</main>
+<marquee behavior="" direction=""><h6>Demi keamanan Anda, mohon tidak merespons penagihan atau layanan konsultasi jika dihubungi oleh nomor WhatsApp yang berbeda dari kontak resmi di atas!!!</h6></marquee>
+<footer>
+  <strong>YUAN.Art</strong><br>
+  Undangan digital untuk cerita yang tak terlupakan.<br>
+  © <span id="year"></span> Yuan.ydstr
+</footer>
+
+<!-- Ganti nomor WhatsApp admin pada variabel WHATSAPP_ADMIN di bawah. -->
+<a class="wa-float" id="waFloat" href="https://wa.me/6285198450868" target="_blank" rel="noopener noreferrer" aria-label="Hubungi WhatsApp" title="WhatsApp">📞</a>
+
+<script>
+  // GANTI dengan nomor WhatsApp admin: kode negara + nomor, tanpa tanda +, spasi, atau strip.
+  const WHATSAPP_ADMIN = "+6285198450868";
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  document.querySelectorAll(".order").forEach(button => {
+    button.addEventListener("click", () => {
+      if (WHATSAPP_ADMIN === "6285198450868") {
+        alert("Atur nomor WhatsApp admin terlebih dahulu pada variabel WHATSAPP_ADMIN di bagian JavaScript.");
+        return;
+      }
+      const packageName = button.dataset.package;
+      const price = button.dataset.price;
+      const message = `Halo Yuan, saya tertarik memesan ${packageName} (${price}). Mohon informasi lebih lanjut.`;
+      window.open(`https://wa.me/${WHATSAPP_ADMIN}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+    });
+  });
+</script>
+</body>
+</html>
